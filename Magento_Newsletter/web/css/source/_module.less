@@ -1,0 +1,98 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    //  Newsletter subscription
+    .block.newsletter {
+        margin-bottom: 20px;
+
+        .form.subscribe {
+            display: table;
+            width: 100%;
+        }
+
+        .fieldset {
+            display: table-cell;
+            margin: 0;
+            padding: 0;
+            vertical-align: top;
+        }
+
+        .field {
+            margin: 0;
+
+            .control {
+                display: block;
+            }
+        }
+
+        input {
+            height: 40px;
+            line-height: 40px;
+            background: @color-grey4;
+            border: 0;
+            color: @color-grey1;
+        }
+
+        .title {
+            padding: 8px 0 7px 0;
+            strong {
+                margin: 0 0 15px 0;
+                font-size: 1.8rem;
+                color: @color-grey3;
+                font-weight: @font-weight__bold;
+                text-transform: uppercase;
+            }
+        }
+
+        .label {
+            font-size: 1.5rem;
+            color: @color-grey2;
+            padding-bottom: 25px;
+            display: block;
+        }
+
+
+        .actions {
+            margin: 10px 0 0 0;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .block.newsletter {
+        width: 28.5%;
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .block {
+        &.newsletter {
+            input {
+                font-size: 12px;
+                padding-left: 30px;
+            }
+
+            .field {
+                .control:before {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.container">
+            <block class="Magento\Cms\Block\Block" name="header-help">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">header-help</argument>
+                </arguments>
+            </block>
+            <referenceBlock name="minicart" remove="true" />
+        </referenceContainer>
+
+        <referenceContainer name="footer-container">
+            <container name="footer-top" as="footer-top" label="Page Footer Top" htmlTag="div" htmlClass="footer top" before="-">
+                <block class="Magento\Cms\Block\Block" name="benefits">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">benefits</argument>
+                    </arguments>
+                </block>
+        </container>
+        </referenceContainer>
+
+        <referenceContainer name="footer">
+
+            <referenceBlock name="footer_links" remove="true" />
+            <block class="Magento\Cms\Block\Block" name="footer-links">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer-links</argument>
+                </arguments>
+            </block>
+            <container name="footer-bottom" as="footer-bottom" label="Page Footer Bottom" htmlTag="div" htmlClass="footer bottom">
+                <block class="Magento\Cms\Block\Block" name="footer-logo">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer-logo</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Cms\Block\Block" name="footer-social">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer-social</argument>
+                    </arguments>
+                </block>
+           </container>
+        </referenceContainer>
+
+        <move element="header.panel" destination="header-wrapper" before="top.search"/>
+        <move element="navigation.sections" destination="header-wrapper" after="logo"/>
+        <move element="copyright" destination="footer-bottom" after="footer-logo"/>
+
+        <referenceBlock name="catalog.compare.link" remove="true" />
+        <referenceBlock name="wishlist_sidebar" remove="true" />
+        <referenceBlock name="view.addto.compare" remove="true"/>
+        <referenceBlock name="product.info.mailto" remove="true"/>
+        <referenceBlock name="view.addto.wishlist" remove="true"/>
+        <referenceBlock name="wish-list-link" remove="true" />
+        <referenceBlock name="reviews.tab" remove="true" />
+        <referenceBlock name="product.info.review" remove="true"/>
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="header-wrapper.minicart" remove="true" />
+        <referenceBlock name="minicart" remove="true" />
+    </body>
+</page>

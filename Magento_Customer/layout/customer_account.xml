@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="2columns-left" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <!-- Remove My Downloadable Products-->
+        <referenceBlock name="customer-account-navigation-downloadable-products-link" remove="true"/>
+
+        <!-- Remove My Product Reviews-->
+        <referenceBlock name="customer-account-navigation-product-reviews-link" remove="true"/>
+
+        <!-- Remove My Wish List-->
+        <referenceBlock name="customer-account-navigation-wish-list-link" remove="true"/>
+
+        <!--
+         Remove Account Dashboard
+        <referenceBlock name="customer-account-navigation-account-link" remove="true"/>
+
+        &lt;!&ndash; Remove Account Information&ndash;&gt;
+        <referenceBlock name="customer-account-navigation-account-edit-link" remove="true"/>
+
+        &lt;!&ndash; Remove Address Book&ndash;&gt;
+        <referenceBlock name="customer-account-navigation-address-link" remove="true"/>
+
+        &lt;!&ndash; Remove My Orders&ndash;&gt;
+        <referenceBlock name="customer-account-navigation-orders-link" remove="true"/>
+
+        &lt;!&ndash; Remove My Downloadable Products&ndash;&gt;
+        <referenceBlock name="customer-account-navigation-downloadable-products-link" remove="true"/>
+
+        &lt;!&ndash; Remove Newsletter Subscriptions&ndash;&gt;
+        <referenceBlock name="customer-account-navigation-newsletter-subscriptions-link" remove="true"/>
+
+        &lt;!&ndash; Remove My Credit Cards&ndash;&gt;
+        <referenceBlock name="customer-account-navigation-my-credit-cards-link" remove="true"/>
+
+        &lt;!&ndash; Remove Billing Agreements&ndash;&gt;
+        <referenceBlock name="customer-account-navigation-billing-agreements-link" remove="true"/>
+
+        &lt;!&ndash; Remove My Product Reviews&ndash;&gt;
+        <referenceBlock name="customer-account-navigation-product-reviews-link" remove="true"/>
+
+        &lt;!&ndash; Remove My Wish List&ndash;&gt;
+        <referenceBlock name="customer-account-navigation-wish-list-link" remove="true"/>-->
+    </body>
+</page>

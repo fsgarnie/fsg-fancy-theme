@@ -1,0 +1,24 @@
+
+<script type="text/javascript">
+    jQuery(document).ready(function($){
+        // use jQuery code here with $ formatting
+
+        require(['jquery', 'checkoutjs'], function($, checkoutjs) {
+            var options = {
+                mode: 'wizard',
+                autoButtonsNextClass: 'btn btn-primary float-right',
+                autoButtonsPrevClass: 'btn btn-light',
+                stepNumberClass: 'badge badge-pill badge-primary mr-1',
+                onSubmit: function() {
+                    alert('Form submitted!');
+                    return true;
+                }
+            }
+            $(".iwd-checkout-step" ).accWizard(options);
+        });
+
+
+        // executes AFTER page finishes loading
+    });
+
+</script>

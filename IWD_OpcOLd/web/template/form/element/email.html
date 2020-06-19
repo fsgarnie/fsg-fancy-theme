@@ -1,0 +1,122 @@
+<!-- ko ifnot: isCustomerLoggedIn -->
+<!-- ko foreach: getRegion('before-login-form') -->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!-- /ko -->
+<div id="iwd_opc_login" class="fieldset">
+    <form
+            data-role="email-with-possible-login"
+            data-bind="submit:login, iwdBlockLoader: isLoading"
+            method="post">
+        <div class="iwd_opc_universal_wrapper">
+
+            <div class="field email1 required">
+                <label class="label" for="email1"><span>Email</span></label>
+                <div class="control">
+                    <input name="login[username]" value="" autocomplete="off" id="email1" type="email" class="input-text" title="Email" data-validate="{required:true, 'validate-email':true}" aria-required="true">
+                </div>
+            </div>
+
+            <label for="prefix">Prefix</label>
+            <select class="iwd_opc_input iwd_opc_field" id="prefix" name="prefix" data-validate="{required:true}">
+                <option value=""></option>
+                <option value="0" label="Mr">Mr</option>
+                <option value="1" label="Miss">Miss</option>
+                <option value="2" label="Mrs">Mrs</option>
+                <option value="3" label="Ms">Ms</option>
+                <option value="4" label="Dr">Dr</option>
+                <option value="5" label="Lady">Lady</option>
+                <option value="6" label="Lord">Lord</option>
+                <option value="7" label="Prof">Prof</option>
+                <option value="8" label="Fr">Fr</option>
+                <option value="9" label="Sr">Sr</option>
+                <option value="10" label="Messrs">Messrs</option>
+                <option value="11" label="Rev">Rev</option>
+            </select>
+
+            <label for="firstname">First Name</label>
+            <input class="iwd_opc_input iwd_opc_field" id="firstname"
+                   type="text"
+                   name="firstname"
+                   data-validate="{required:true}" />
+
+            <label for="lastname">Last Name</label>
+            <input class="iwd_opc_input iwd_opc_field" id="lastname"
+                   type="text"
+                   name="lastname"
+                   data-validate="{required:true}" />
+
+            <label for="dob">Date of Birth</label>
+            <input class="iwd_opc_input iwd_opc_field datepicker" id="dob" data-date-format="mm/dd/yyyy"
+                   name="dob"
+                   data-validate="{required:true}" />
+
+            <label>Username</label>
+            <input class="iwd_opc_input iwd_opc_field datepicker" id="username" data-date-format="mm/dd/yyyy"
+                   name="username"
+                   data-validate="{required:true}" />
+
+            <label for="email">Email</label>
+            <input data-bind="
+                            attr:{
+                                placeholder: placeholder,
+                                title: placeholder
+                            },
+                            textInput: email,
+                            hasFocus: emailFocused"
+                   class="iwd_opc_input iwd_opc_field"
+                   type="email"
+                   name="username"
+                   data-validate="{required:true, 'validate-email':true}" id="email"/>
+
+            <input name="context" type="hidden" value="checkout"/>
+
+            <label for="password">Password</label>
+            <input data-bind="attr:{
+                                'type': passwordType,
+                                placeholder: passwordPlaceholder,
+                                title: passwordPlaceholder,
+                            },
+                            hasFocus: passwordFocused"
+                   class="iwd_opc_input iwd_opc_field"
+                   name="password"
+                   data-validate="{required:true}"
+                   autocomplete="off" id="password" />
+
+            <div data-bind="
+                css: {
+                    'active': passwordType() === 'password'
+                },
+                click: toggleShowHidePassword,
+                attr:{title:$t('Show/Hide password')}"
+                 class="iwd_opc_show_hide_password"></div>
+        </div>
+
+        <div data-bind="visible: isPasswordVisible">
+            <!-- ko foreach: getRegion('additional-login-form-fields') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+        </div>
+        <div
+                data-bind="visible: isPasswordVisible"
+                id="iwd_opc_login_buttons" class="iwd_opc_universal_wrapper iwd_opc_small_button_container">
+            <button
+                    data-bind="i18n: 'Log In', attr:{title:$t('Log In')}"
+                    type="submit" id="iwd_opc_login_button" class="iwd_opc_small_button active">
+            </button>
+            <button
+                    data-bind="i18n: 'Reset', attr:{title:$t('Reset')}, click: reset"
+                    type="button" id="iwd_opc_reset_password_button" class="iwd_opc_small_button">
+            </button>
+        </div>
+        <!-- ko foreach: getRegion('errors') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+    </form>
+</div>
+<div class="iwd_opc_section_delimiter"></div>
+<!-- /ko -->
+<script type="text/javascript">
+    $(function () {
+        $('#dob').datetimepicker();
+    });
+</script>

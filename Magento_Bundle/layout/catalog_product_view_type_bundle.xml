@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Wagento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.media" remove="true"/>
+        <referenceContainer name="product.info.main" remove="true" />
+        <referenceContainer name="page.top">
+            <container name="bundleheader" htmlTag="div" htmlClass="bundle-header" after="-">
+                <container name="bundlebreadcrumbs" htmlTag="div" htmlClass="bundle-breadcrumbs" before="-" />
+                <block class="Magento\Cms\Block\Block" name="bundle-banner" after="bundlebreadcrumbs">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">bundle-banner</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+        <referenceBlock name="content">
+            <block class="Magento\Cms\Block\Block" name="bundle-summary-custom" after="bundle.summary">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">bundle-summary-custom</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <move element="bundle-summary-custom" destination="bundle.summary" after="-"/>
+        <move element="product.price.render.bundle.customization" destination="bundle.summary" before="product.info.addtocart.bundle"/>
+        <move element="breadcrumbs" destination="bundlebreadcrumbs" after="-"/>
+        <referenceBlock name="product.info.details" remove="true" />
+    </body>
+</page>
